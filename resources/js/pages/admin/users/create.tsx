@@ -14,7 +14,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import AppLayout from '@/layouts/app-layout';
 import type { BreadcrumbItem, Permission } from '@/types';
 import { Head, router, useForm } from '@inertiajs/react';
-import { AlertCircle, CheckCircle, Clock, Eye, EyeOff, Globe, Key, Mail, Save, Settings, Shield, Upload, UserPlus, Users, X } from 'lucide-react';
+import { AlertCircle, CheckCircle, Clock, Eye, EyeOff, Key, Mail, Save, Settings, Shield, Upload, UserPlus, Users, X } from 'lucide-react';
 import type React from 'react';
 import { useEffect, useState } from 'react';
 
@@ -46,7 +46,6 @@ export default function CreateUser({ roles, availablePermissions, errors = {}, s
         phone: '',
         avatar: null as File | null,
         timezone: 'UTC',
-        language: 'en',
         permissions: [] as string[],
         email_verified: false,
         two_factor_enabled: false,
@@ -364,32 +363,6 @@ export default function CreateUser({ roles, availablePermissions, errors = {}, s
                                                     </Label>
                                                     <p className="text-xs text-muted-foreground">JPG, PNG up to 2MB</p>
                                                 </div>
-                                            </div>
-                                        </CardContent>
-                                    </Card>
-
-                                    <Card>
-                                        <CardHeader>
-                                            <CardTitle className="flex items-center gap-2">
-                                                <Globe className="h-5 w-5" />
-                                                Language & Region
-                                            </CardTitle>
-                                        </CardHeader>
-                                        <CardContent className="space-y-4">
-                                            <div className="space-y-2">
-                                                <Label htmlFor="language">Language</Label>
-                                                <Select value={data.language} onValueChange={(value) => setData('language', value)}>
-                                                    <SelectTrigger>
-                                                        <SelectValue placeholder="Select language" />
-                                                    </SelectTrigger>
-                                                    <SelectContent>
-                                                        <SelectItem value="en">English</SelectItem>
-                                                        <SelectItem value="es">Spanish</SelectItem>
-                                                        <SelectItem value="fr">French</SelectItem>
-                                                        <SelectItem value="de">German</SelectItem>
-                                                        <SelectItem value="pt">Portuguese</SelectItem>
-                                                    </SelectContent>
-                                                </Select>
                                             </div>
                                         </CardContent>
                                     </Card>

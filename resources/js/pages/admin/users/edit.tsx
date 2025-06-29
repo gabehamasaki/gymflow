@@ -92,7 +92,7 @@ export default function AdminEditUser({ user, permissions, availablePermissions,
     const breadcrumbs: BreadcrumbItem[] = [
         { title: 'Admin', href: '/admin' },
         { title: 'Users', href: '/admin/users' },
-        { title: 'Edit User', href: `/admin/users/${user.id}/edit` },
+        { title: `Edit ${user.name}`, href: `/admin/users/${user.id}/edit` },
     ];
 
     const handleSubmit = (e: React.FormEvent) => {
