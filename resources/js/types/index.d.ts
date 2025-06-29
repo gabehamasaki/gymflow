@@ -8,6 +8,7 @@ export interface Auth {
 
 export interface Permission {
     name: string;
+    description: string?;
     is_active: boolean;
 }
 

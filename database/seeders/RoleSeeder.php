@@ -17,6 +17,7 @@ class RoleSeeder extends Seeder
             'color' => '#FF0000',
             'permissions' => [
                 'view_dashboard',
+                'view_admin',
                 'view_users',
                 'store_user',
                 'update_user',

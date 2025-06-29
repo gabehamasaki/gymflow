@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Permission;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -22,7 +24,19 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return inertia('admin/users/create', [
+            'roles' => Role::all()->map(function ($item) {
+                $item->with('permissions');
+                return [
+                    'name' => $item->name,
+                    'description' => $item->description,
+                    'permissions' => $item->permissions->map(fn($item) => ['name' => $item->name, 'description' => $item->description, 'is_active' => $item->is_active])
+                ];
+            }),
+            'availablePermissions' => Permission::where('is_active', true)->get()->map(function ($permission) {
+                return ['name' => $permission->name, 'description' => $permission->description];
+            }),
+        ]);
     }
 
     /**

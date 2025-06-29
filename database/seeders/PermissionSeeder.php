@@ -15,6 +15,11 @@ class PermissionSeeder extends Seeder
             'is_active' => true,
         ],
         [
+            'description' => 'View Admin',
+            'name' => 'view_admin',
+            'is_active' => true,
+        ],
+        [
             'description' => 'View Users',
             'name' => 'view_users',
             'is_active' => true,

@@ -70,6 +70,16 @@ class User extends Authenticatable
         return $this->belongsToMany(Permission::class, 'permission_user', 'user_id', 'permission_id');
     }
 
+    public function isActive(): bool
+    {
+        return $this->status === UserStatus::ACTIVE;
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role && $this->role->name === 'admin';
+    }
+
     public function hasPermission(string $permission): bool
     {
         return !$this->permissions->isEmpty() ? $this->permissions->contains('name', $permission) : $this->role->permissions->contains('name', $permission);
